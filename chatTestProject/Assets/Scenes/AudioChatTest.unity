@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 392926133}
   - component: {fileID: 392926138}
   - component: {fileID: 392926137}
+  - component: {fileID: 392926139}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -617,6 +618,23 @@ MonoBehaviour:
   sendButton: {fileID: 1083673802}
   responseText: {fileID: 231844140}
   inputField: {fileID: 1210376102}
+--- !u!114 &392926139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392926132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff969b2540f0647b3b24e07dbc1cb298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  option1: escape
+  option2: fight
+  option3: defense
+  option4: idle
+  inputText: run away!!!!
 --- !u!1 &493548601
 GameObject:
   m_ObjectHideFlags: 0

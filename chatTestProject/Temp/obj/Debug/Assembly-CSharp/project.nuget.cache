@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XdmeF+E/yWpa3pxBn/wQRk5kF4NsW5enziB0uaCKF05nL/NDv7tfS0kG5tK1l4SfHf+IURGs0FAevNK4Tud1YQ==",
+  "dgSpecHash": "QAuQgkbSUjNDp92vudn5Dxyn7b5h8Cu87fXWKW59XVvRG6BD634aggdGwr+2H12rA8Xeb/Q5Fa3sCpi15aEr7Q==",
   "success": true,
-  "projectFilePath": "/Users/hcm-b0310/Documents/mac/unity/chatTest/Assembly-CSharp.csproj",
+  "projectFilePath": "/Users/hcm-b0310/Documents/GitHub/GPTAudioTest/chatTestProject/Assembly-CSharp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

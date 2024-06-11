@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HuggingFace.API;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 public class SentenceSimilarity : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -17,28 +18,30 @@ public class SentenceSimilarity : MonoBehaviour
 
     }
 
-    [SerializeField] public string option1;
-    [SerializeField] public string option2;
-    [SerializeField] public string option3;
-    [SerializeField] public string option4;
-    [SerializeField] public string inputText;
+    [SerializeField] public InputField option1;
+    [SerializeField] public InputField option2;
+    [SerializeField] public InputField option3;
+    [SerializeField] public InputField option4;
+    [SerializeField] public InputField inputText;
 
 
+    public InputField resultText;
+    public UnityEngine.UI.Button sendButton;
     List<string> candidates = new List<string>();
     // Make a call to the API
-    void Query(string inputText)
+    void Query()
     {
-        candidates.Add(option1);
-        candidates.Add(option2);
-        candidates.Add(option3);
-        candidates.Add(option4);
+        candidates.Add(option1.text);
+        candidates.Add(option2.text);
+        candidates.Add(option3.text);
+        candidates.Add(option4.text);
         string[] inputs = {
-            option1,
-            option2,
-            option3,
-            option4
+            option1.text,
+            option2.text,
+            option3.text,
+            option4.text
         };
-        HuggingFaceAPI.SentenceSimilarity(inputText, OnSuccess, OnError, inputs);
+        HuggingFaceAPI.SentenceSimilarity(inputText.text, OnSuccess, OnError, inputs);
     }
 
     // If successful, handle the result
@@ -57,6 +60,7 @@ public class SentenceSimilarity : MonoBehaviour
             }
             idx++;
         }
+        resultText.text = candidates[maxIdx];
         Debug.Log(candidates[maxIdx]);
     }
 
@@ -68,7 +72,11 @@ public class SentenceSimilarity : MonoBehaviour
 
     private void Awake()
     {
-        Query(inputText);
+        option1.text = "escape";
+        option2.text = "fight";
+        option3.text = "defense";
+        option4.text = "idle";
+        sendButton.onClick.AddListener(Query);
 
     }
 

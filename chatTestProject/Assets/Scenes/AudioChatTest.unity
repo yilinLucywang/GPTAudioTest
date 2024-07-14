@@ -663,6 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2c15e7e5daa474a8ead8423ffc1b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputText: {fileID: 1923028777}
   audioSource: {fileID: 0}
 --- !u!1 &231844138
 GameObject:

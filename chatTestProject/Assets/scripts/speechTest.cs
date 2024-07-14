@@ -6,10 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class SpeechTest : MonoBehaviour
 {
+    [SerializeField] public InputField inputText;
     /// <summary>当前物体的AudioSource组件<summary>
     [HideInInspector]
     public AudioSource audioSource;
@@ -90,7 +92,7 @@ public class SpeechTest : MonoBehaviour
         //请求数据
         Task<string> resultJson = XunFeiManager.Instance.TextToSpeech(message);
         //等待返回消息
-        yield return new WaitUntil(() => resultJson.IsCompleted);   
+        yield return new WaitUntil(() => resultJson.IsCompleted);
 
         //成功接收到消息
         if (resultJson.IsCompletedSuccessfully == true)
@@ -227,6 +229,7 @@ public class SpeechTest : MonoBehaviour
             //获取相似度
             string text = obj["text"].ToString();
             Debug.Log("文本：" + text);
+            inputText.text = text;
             //回调
             callback.Invoke(text);
         }

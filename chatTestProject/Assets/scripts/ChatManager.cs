@@ -14,7 +14,7 @@ public class ChatManager : MonoBehaviour
 
     private void Awake()
     {
-        SpeechToText.Initialize("en-US");
+        SpeechToText.Initialize("zh-CN");
 
         sendButton.onClick.AddListener(inpuText);
     }

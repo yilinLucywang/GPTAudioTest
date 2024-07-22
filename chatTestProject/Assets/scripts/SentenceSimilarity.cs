@@ -24,12 +24,13 @@ public class SentenceSimilarity : MonoBehaviour
     [SerializeField] public InputField option4;
     [SerializeField] public InputField inputText;
 
+    [SerializeField] public GameObject Drimmon;
 
     public InputField resultText;
     public UnityEngine.UI.Button sendButton;
     List<string> candidates = new List<string>();
     // Make a call to the API
-    void Query()
+    public void Query()
     {
         candidates.Add(option1.text);
         candidates.Add(option2.text);
@@ -61,6 +62,18 @@ public class SentenceSimilarity : MonoBehaviour
             idx++;
         }
         resultText.text = candidates[maxIdx];
+        if (maxIdx == 1)
+        {
+            Debug.Log("战斗");
+
+            Drimmon.GetComponent<drimmonController>().setState(0);
+        }
+        else if (maxIdx == 0)
+        {
+            Debug.Log("向左");
+
+            Drimmon.GetComponent<drimmonController>().setState(1);
+        }
         Debug.Log(candidates[maxIdx]);
     }
 
@@ -72,10 +85,10 @@ public class SentenceSimilarity : MonoBehaviour
 
     private void Awake()
     {
-        option1.text = "escape";
-        option2.text = "fight";
-        option3.text = "defense";
-        option4.text = "idle";
+        option1.text = "向左";
+        option2.text = "战斗";
+        option3.text = "防御";
+        option4.text = "空闲";
         sendButton.onClick.AddListener(Query);
 
     }

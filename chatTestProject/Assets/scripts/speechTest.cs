@@ -12,6 +12,7 @@ using UnityEngine.UI;
 public class SpeechTest : MonoBehaviour
 {
     [SerializeField] public InputField inputText;
+    [SerializeField] public GameObject canvas;
     /// <summary>当前物体的AudioSource组件<summary>
     [HideInInspector]
     public AudioSource audioSource;
@@ -230,6 +231,9 @@ public class SpeechTest : MonoBehaviour
             string text = obj["text"].ToString();
             Debug.Log("文本：" + text);
             inputText.text = text;
+            //TODO: continue on here: 
+            SentenceSimilarity similarity = canvas.GetComponent<SentenceSimilarity>();
+            similarity.Query();
             //回调
             callback.Invoke(text);
         }

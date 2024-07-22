@@ -50,6 +50,7 @@ public class AudioToText : MonoBehaviour, ISpeechToTextListener
             }
             else
                 SpeechText.text = "Permission is denied!";
+                SpeechToText.OpenSettings();
         });
     }
 
